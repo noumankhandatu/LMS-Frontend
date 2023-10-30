@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import { Josefin_Sans } from "next/font/google";
-import ThemeProvider from "./utils/theme-provider";
+import MyThemeProvider from "./utils/MyThemeProvider";
 import "./globals.css";
 
 const poppin = Poppins({
@@ -18,11 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppin.variable} ${josefin.variable}  bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-black duration-300`}
+        className={`${poppin.variable} ${josefin.variable}  !bg-white bg-no-repeat dark:bg-gradient-to-b dark:from-gray-900 dark:to-black duration-1000`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <MyThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-        </ThemeProvider>
+        </MyThemeProvider>
       </body>
     </html>
   );

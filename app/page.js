@@ -12,7 +12,7 @@ const Page = () => {
       <MetaData
         title="LMS"
         description={"LMS is where you learn mern stack "}
-        keywords={"MERN , Redux , LMS "}
+        keywords={"MERN,REDUX,LMS"}
       />
       <Header open={open} setOpen={setOpen} activeItem={activeItem} />
     </div>

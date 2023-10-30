@@ -5,7 +5,7 @@ import { BiMoon, BiSun } from "react-icons/bi";
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme("dark");
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -20,7 +20,7 @@ const ThemeSwitcher = () => {
         {theme === "light" ? (
           <BiMoon
             className="cursor-pointer"
-            fill="white"
+            fill="black"
             size={25}
             onClick={() => {
               setTheme("dark");

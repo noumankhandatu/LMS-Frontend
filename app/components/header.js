@@ -24,7 +24,10 @@ const Header = ({ open, setOpen, activeItem }) => {
         <div className="w-[95%] 800px:w-[92%] m-auto py-2 h-full">
           <div className="w-full h-[80px] flex items-center justify-between p-3">
             <div>
-              <Link href={"/"} className="text-[25px] font-Poppins font-[500]  text-white ">
+              <Link
+                href={"/"}
+                className="text-[25px] font-Poppins font-[500]  dark:text-white text-black "
+              >
                 Learning Management System
               </Link>
             </div>
