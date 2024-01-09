@@ -3,8 +3,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavItems from "../utils/NavItems";
 import ThemeSwitcher from "../utils/ThemeSwitcher";
+import CustomModal from "./CustomModal";
+import Login from "./auth/Login";
+import SignUp from "./auth/SignUp";
+import Verification from "./auth/Verification";
 
-const Header = ({ open, setOpen, activeItem }) => {
+const Header = ({ open, setOpen, activeItem, route, setRoute }) => {
   const [active, setActive] = useState(false);
   const [openSidebar, setopenSidebar] = useState(false);
 
@@ -17,6 +21,16 @@ const Header = ({ open, setOpen, activeItem }) => {
       }
     });
   }
+
+  const handleLogin = () => {
+    setRoute("signin");
+    setOpen(true);
+  };
+
+  const handleSignup = () => {
+    setRoute("signup");
+    setOpen(true);
+  };
 
   return (
     <div className="w-full relative">
@@ -33,11 +47,62 @@ const Header = ({ open, setOpen, activeItem }) => {
             </div>
             <div className="flex items-center">
               <NavItems activeItems={activeItem} />
+              <span onClick={handleLogin} className={`text-white ml-5`}>
+                Login
+              </span>
+              <span onClick={handleSignup} className={`text-white ml-5`}>
+                Sign Up
+              </span>
               <ThemeSwitcher />
             </div>
           </div>
         </div>
       </div>
+      {route === "signin" && (
+        <>
+          {open && (
+            <>
+              <CustomModal
+                setOpen={setOpen}
+                open={open}
+                setRoute={setRoute}
+                activeItem={activeItem}
+                component={Login}
+              />
+            </>
+          )}
+        </>
+      )}
+      {route === "signup" && (
+        <>
+          {open && (
+            <>
+              <CustomModal
+                setOpen={setOpen}
+                open={open}
+                setRoute={setRoute}
+                activeItem={activeItem}
+                component={SignUp}
+              />
+            </>
+          )}
+        </>
+      )}{" "}
+      {route === "verification" && (
+        <>
+          {open && (
+            <>
+              <CustomModal
+                setOpen={setOpen}
+                open={open}
+                setRoute={setRoute}
+                activeItem={activeItem}
+                component={Verification}
+              />
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 };
